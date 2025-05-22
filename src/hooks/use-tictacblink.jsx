@@ -5,6 +5,8 @@ const initialBoard = () => Array(9).fill(null)
 function useTicTacBlink() {
     const [board, setBoard] = useState(initialBoard())
     const [isXNext, setIsXNext] = useState(true)
+    const [playerMoves, setPlayerMoves] = useState({player1: [],player2: []});
+
   
     const winningPatterns = [
         [0, 1, 2],
@@ -30,14 +32,29 @@ function useTicTacBlink() {
     }
 
 
-    const handleClick = (index) => {
-        const winner = calculateWinner(board)
-        if (winner || board[index]) return
-        const newBoard = [...board]
-        newBoard[index] = isXNext ? 'X' : 'O'
-        setBoard(newBoard)
-        setIsXNext(!isXNext)
+   const handleClick = (index) => {
+    const winner = calculateWinner(board)
+    if (winner || board[index]) return
+
+    const currentPlayer = isXNext ? 'player1' : 'player2'
+    const symbol = isXNext ? 'X' : 'O'
+    const moves = [...playerMoves[currentPlayer]]
+    const newBoard = [...board]
+
+    if (moves.length === 3) {
+        const oldest = moves.shift()
+        if (oldest === index) return 
+        newBoard[oldest] = null
     }
+
+    newBoard[index] = symbol
+    moves.push(index)
+
+    setBoard(newBoard)
+    setPlayerMoves(prev=>({...prev,[currentPlayer]: moves}))
+    setIsXNext(!isXNext)
+}
+
 
 
     const getStatusMessage = () => {
@@ -54,9 +71,7 @@ function useTicTacBlink() {
         setBoard(initialBoard())
         setIsXNext(true)
     } 
-
     return { board, handleClick, calculateWinner, resetGame, getStatusMessage }
-
 }
 
 export default useTicTacBlink;
