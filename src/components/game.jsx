@@ -8,8 +8,8 @@ function Game(){
             {getStatusMessage()}
         <div className='game'>
             <div className='board'>
-                {board.map((value, index) => (
-                    <button key={index} className='box' onClick={handleClick} disabled={board[index] !== null}>{board[index]}</button>
+                {board.map((b, index) => (
+                    <button key={index} className='box' onClick={()=>handleClick(index)} disabled={b !== null}>{b}</button>
                 ))}
 
             </div>
