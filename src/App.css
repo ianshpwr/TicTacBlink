@@ -19,7 +19,7 @@ body,html{
   height: 100%;
 }
 .game{
-  height: 65vh;
+  height: 63vh;
   display: flex;
   justify-content:center;
   align-items: center;
