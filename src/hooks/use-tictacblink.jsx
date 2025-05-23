@@ -76,7 +76,7 @@ useEffect(() => {
   const getStatusMessage = () => {
     const winner = calculateWinner(board)
     if (winner) return `Winner: ${winner}`
-    return `Next player : ${isXNext ? 'Player 1' : 'Player 2'}`
+    return `Turn : ${isXNext ? 'Player 1' : 'Player 2'}`
   }
   const resetGame = () => {
     setBoard(initialBoard())

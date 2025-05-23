@@ -12,7 +12,7 @@ function Game() {
   }
 
   return (
-    <div>
+    <div className='godiv'>
       <div className='heading'>
       <h1>Tic Tac Blink</h1>
       <h3>{game.getStatusMessage()}</h3>
@@ -26,12 +26,12 @@ function Game() {
               onClick={() => game.handleClick(index)}
               disabled={b !== null}
             >
-              {b}
+              <span style={{filter: 'brightness(0.75) contrast(4)'}}>{b}</span>
             </button>
           ))}
         </div>
       </div>
-      <button className="startreset" onClick={game.resetGame}>
+      <button id='reset' onClick={game.resetGame}>
         Reset Game
       </button>
     </div>

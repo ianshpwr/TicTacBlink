@@ -13,10 +13,16 @@ body{
   background-repeat: no-repeat;
   height: 100vh;
 }
+body,html{
+  margin: 0;
+  padding-bottom: 1rem;
+  height: 100%;
+  overflow: hidden;
+}
 .game{
-  height: 70vh;
+  height: 65vh;
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 
@@ -38,6 +44,9 @@ body{
   font-size: 2.8rem;
   overflow: hidden;
   cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 0 2.5px #00c4cb;
+  
 }
 
 
@@ -46,23 +55,26 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
 .category{
   display: grid;
   gap: 1rem;
   padding: 2rem;
 }
+
 .buttons button:hover{
   transform: scale(1.05);
   transition: transform 0.5s ease;
 
 }
+
 .buttons{
 display: grid;
 gap: 1rem;
 height: 5rem;
 cursor: pointer;
-
 }
+
 .buttons button{
   padding: 0.8rem;
   font-size: 1rem;
@@ -76,6 +88,7 @@ cursor: pointer;
   font-weight: 600;
   font-size: 1rem;
 }
+
 h2,.h2{
   color: rgba(255, 255, 255, 0.779);
   box-shadow: 0 0 3px #00c4cb;
@@ -85,6 +98,7 @@ h2,.h2{
   text-decoration: none;
   
 }
+
 .h2{
   background:#00c4cb64;
   box-shadow: 0 0 3px #00c4cb;
@@ -123,8 +137,28 @@ gap: 1rem;
   margin: auto;
   text-decoration: none;
   border: none;
-  background-color: none;
+  background-color: transparent;
   cursor: pointer;
 
 
+}
+#reset{
+  color: rgba(255, 255, 255, 0.779);
+  box-shadow: 0 0 3px #005a5d;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  margin: auto;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.godiv{
+  height: 100vh;
+  box-sizing: border-box;
 }

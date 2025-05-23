@@ -53,7 +53,7 @@ function ChooseCategory() {
             <span>{player2Category} - {allCategories[player2Category].join(' ')}</span> 
           </p>
           <Link
-          style={{ fontSize: '1.2rem' }}
+          style={{fontSize:'1.2rem'}}
             to="/game"
             className='startreset'
             state={{
