@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+font-family: "Exo 2", sans-serif;
 }
 .game{
   height: 70vh;
@@ -25,7 +26,23 @@
   width: 18vmin;
   border-radius: 1rem;
 }
+
 .reset{
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
+}
+
+.category-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.category{
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+.category:hover{
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
 }
