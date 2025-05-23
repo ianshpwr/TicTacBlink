@@ -36,7 +36,7 @@ function ChooseCategory() {
               .filter(([category]) => category !== player1Category)
               .map(([category, emojis]) => (
                 <button key={category} onClick={() => setPlayer2Category(category)}>
-                  {category}: {emojis.join(' ')}
+            <span className='outerspan'><span>{category}</span><span className='innerspan'>{emojis.join(' ')}</span></span>
                 </button>
               ))}
           </div>
@@ -44,14 +44,18 @@ function ChooseCategory() {
       ) : (
         <div className="category">
           <h2>Both players are ready!</h2>
-          <p>
-            Player 1: {player1Category} - {allCategories[player1Category].join(' ')}
+          <p className='h2' style={{ fontSize: '1.2rem' }}>
+           <span>Player 1</span><br/> 
+            <span>{player1Category} - {allCategories[player1Category].join(' ')}</span> 
           </p>
-          <p>
-            Player 2: {player2Category} - {allCategories[player2Category].join(' ')}
+          <p className='h2' style={{ fontSize: '1.2rem' }}>
+           <span>Player 2</span><br/> 
+            <span>{player2Category} - {allCategories[player2Category].join(' ')}</span> 
           </p>
           <Link
+          style={{ fontSize: '1.2rem' }}
             to="/game"
+            className='startreset'
             state={{
               player1Category,
               player2Category,

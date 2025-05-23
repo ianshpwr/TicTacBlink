@@ -13,8 +13,10 @@ function Game() {
 
   return (
     <div>
+      <div className='heading'>
       <h1>Tic Tac Blink</h1>
-      <p>{game.getStatusMessage()}</p>
+      <h3>{game.getStatusMessage()}</h3>
+      </div>
       <div className="game">
         <div className="board">
           {game.board.map((b, index) => (
@@ -29,7 +31,7 @@ function Game() {
           ))}
         </div>
       </div>
-      <button className="reset" onClick={game.resetGame}>
+      <button className="startreset" onClick={game.resetGame}>
         Reset Game
       </button>
     </div>

@@ -33,12 +33,13 @@ body{
   height: 18vmin;
   width: 18vmin;
   border-radius: 1rem;
+  border: none;
+  background-color: #ffffff68;
+  font-size: 3rem;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.reset{
-  font-size: 1.25rem;
-  padding: 0.5rem 1rem;
-}
 
 .category-container{
 display: flex;
@@ -53,12 +54,13 @@ align-items: center;
 .buttons button:hover{
   transform: scale(1.05);
   transition: transform 0.5s ease;
-  cursor: pointer;
+
 }
 .buttons{
 display: grid;
 gap: 1rem;
 height: 5rem;
+cursor: pointer;
 
 }
 .buttons button{
@@ -74,11 +76,26 @@ height: 5rem;
   font-weight: 600;
   font-size: 1rem;
 }
-h2{
+h2,.h2{
   color: rgba(255, 255, 255, 0.779);
   box-shadow: 0 0 3px #00c4cb;
   padding: 0.9rem;
   border-radius: 1rem;
+  margin: auto;
+  text-decoration: none;
+  
+}
+.h2{
+  background:#00c4cb64;
+  box-shadow: 0 0 3px #00c4cb;
+}
+.heading{
+  color: rgba(255, 255, 255, 0.779);
+  box-shadow: 0 0 3px #00c4cb;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  text-align: center;
+
 }
 
 /* .outerspan{
@@ -97,4 +114,17 @@ gap: 1rem;
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+.startreset{
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 3px #00c4cb;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  margin: auto;
+  text-decoration: none;
+  border: none;
+  background-color: none;
+  cursor: pointer;
+
+
 }
