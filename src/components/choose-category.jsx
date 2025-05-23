@@ -14,13 +14,14 @@ function ChooseCategory() {
   };
 
   const renderCategoryButtons = (onSelect, excludeCategory = null) => {
-    return Object.entries(allCategories)
+    return <div className='buttons'> {Object.entries(allCategories)
       .filter(([category]) => category !== excludeCategory)
       .map(([category, emojis]) => (
         <button key={category} onClick={() => onSelect(category)}>
           {category}: {emojis.join(' ')}
         </button>
-      ));
+      ))}
+      </div>
   };
 
   return (
