@@ -17,14 +17,19 @@ body,html{
   margin: 0;
   padding-bottom: 1rem;
   height: 100%;
+  overflow: hidden;
 }
 .game{
-  height: 63vh;
+  height: 68vh;
   display: flex;
   justify-content:center;
   align-items: center;
 }
-
+@media (max-width: 600px) {
+  .game {
+    height: 60vh;
+  }
+}
 .board{
   height: 60vmin;
   width: 60vmin;
