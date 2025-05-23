@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import useTicTacBlink from '../hooks/use-tictacblink';
 import './../App.css';
-
 function Game() {
   const location = useLocation();
   const { player1Category, player2Category, emojis } = location.state || {};
@@ -16,7 +15,6 @@ function Game() {
     <div>
       <h1>Tic Tac Blink</h1>
       <p>{game.getStatusMessage()}</p>
-
       <div className="game">
         <div className="board">
           {game.board.map((b, index) => (
