@@ -3,10 +3,15 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-font-family: "Exo 2", sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 body{
-  Background: #F3F0FF
+  Background: #F3F0FF;
+  /* background-image: url('./assets/background.jpg'); */
+  background: linear-gradient(to bottom, #001615, #00C5CB);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 .game{
   height: 70vh;
@@ -54,11 +59,20 @@ align-items: center;
 display: grid;
 gap: 1rem;
 height: 5rem;
+margin: auto;
 }
 .buttons button{
   padding: 0.8rem;
   font-size: 1rem;
   border-radius: 1rem;
-  background-color: #C4B5FD;
+  /* background-image: url('./assets/buttonbackground.jpg'); */
+  background:#00c4cb64;
+  box-shadow: 0 0 3px #00c4cb;
   border:none
+}
+h2{
+  color: rgba(255, 255, 255, 0.779);
+  box-shadow: 0 0 3px #00c4cb;
+  padding: 1rem;
+  border-radius: 1rem;
 }
