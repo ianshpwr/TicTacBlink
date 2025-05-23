@@ -6,6 +6,8 @@ function useTicTacBlink(emojiCategories) {
   const [board, setBoard] = useState(initialBoard())
   const [isXNext, setIsXNext] = useState(true)
   const [playerMoves, setPlayerMoves] = useState({ player1: [], player2: [] })
+  const [player1winscount, setPlayer1Wins] = useState(0)
+  const [player2winscount, setPlayer2Wins] = useState(0)
 
   const winningPatterns = [
     [0, 1, 2],
@@ -18,22 +20,24 @@ function useTicTacBlink(emojiCategories) {
     [2, 4, 6]
   ]
 
-  const calculateWinner = (currentBoard) => {
-    for (let [a, b, c] of winningPatterns) {
-      if (
-        currentBoard[a] &&
-        currentBoard[a] === currentBoard[b] &&
-        currentBoard[a] === currentBoard[c]
-      ) {
-        const winner = currentBoard[a]
-        const player = Object.keys(emojiCategories).find(
-          (key) => emojiCategories[key].includes(winner)
-        )
-        return player === 'player1' ? 'Player 1' : 'Player 2'
+const calculateWinner = (currentBoard) => {
+  for (let [a, b, c] of winningPatterns) {
+    const emojis = [currentBoard[a], currentBoard[b], currentBoard[c]];
+
+    if (emojis.every(Boolean)) {
+      const categories = Object.entries(emojiCategories);
+
+      for (const [player, emojiList] of categories) {
+        if (emojis.every(emoji => emojiList.includes(emoji))) {
+          return player === 'player1' ? 'Player 1' : 'Player 2';
+        }
       }
     }
-    return null
   }
+
+  return null;
+};
+
 
   const handleClick = (index) => {
     const winner = calculateWinner(board)
