@@ -6,7 +6,7 @@ function ChooseCategory() {
   const [player2Category, setPlayer2Category] = useState(null);
 
   const allCategories = {
-    Animals: ['🐶', '🐱', '🐵', '🐰'],
+    Work: ['💼','🖊️','🧑‍💻','🗂️'],
     Food: ['🍕', '🍟', '🍔', '🍩'],
     Sports: ['⚽', '🏀', '🏈', '🎾'],
     Fire: ['🔥', '🔥', '🔥', '🔥'],
@@ -23,7 +23,7 @@ function ChooseCategory() {
           <div className="buttons">
             {categories.map(([category, emojis]) => (
               <button key={category} onClick={() => setPlayer1Category(category)}>
-                {category}: {emojis.join(' ')}
+            <span className='outerspan'><span>{category}</span><span className='innerspan'>{emojis.join(' ')}</span></span>
               </button>
             ))}
           </div>
