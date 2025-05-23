@@ -45,11 +45,11 @@ function ChooseCategory() {
         <div className="category">
           <h2>Both players are ready!</h2>
           <p className='h2' style={{ fontSize: '1.2rem' }}>
-           <span>Player 1</span><br/> 
+           <span className='ready'>Player 1</span><br/> 
             <span>{player1Category} - {allCategories[player1Category].join(' ')}</span> 
           </p>
           <p className='h2' style={{ fontSize: '1.2rem' }}>
-           <span>Player 2</span><br/> 
+           <span className='ready'>Player 2</span><br/> 
             <span>{player2Category} - {allCategories[player2Category].join(' ')}</span> 
           </p>
           <Link
