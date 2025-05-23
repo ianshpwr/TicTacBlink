@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import ChooseCategory from '../components/choose-category'
 const initialBoard = () => Array(9).fill(null)
 
 function useTicTacBlink(emojiCategories) {
@@ -25,7 +25,11 @@ function useTicTacBlink(emojiCategories) {
         currentBoard[a] === currentBoard[b] &&
         currentBoard[a] === currentBoard[c]
       ) {
-        return currentBoard[a]
+        const winner = currentBoard[a]
+        const player = Object.keys(emojiCategories).find(
+          (key) => emojiCategories[key].includes(winner)
+        )
+        return player === 'player1' ? 'Player 1' : 'Player 2'
       }
     }
     return null

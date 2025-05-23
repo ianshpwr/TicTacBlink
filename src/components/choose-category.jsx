@@ -39,10 +39,10 @@ function ChooseCategory() {
         <>
           <h2>Both players are ready!</h2>
           <p>
-            Player 1: {player1Category} - {allCategories[player1Category].join(' ')}
+            Player 1: {player1Category}-{allCategories[player1Category].join(' ')}
           </p>
           <p>
-            Player 2: {player2Category} - {allCategories[player2Category].join(' ')}
+            Player 2: {player2Category}-{allCategories[player2Category].join(' ')}
           </p>
           <Link
             to="/game"
