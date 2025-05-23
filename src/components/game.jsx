@@ -31,7 +31,6 @@ function Game() {
           ))}
         </div>
       </div>
-
       <button className="reset" onClick={game.resetGame}>
         Reset Game
       </button>
