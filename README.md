@@ -89,9 +89,5 @@ public/
 
 You can add or edit emoji categories in `src/components/choose-category.jsx`.
 
-## License
-
-MIT
-
 ---
 
