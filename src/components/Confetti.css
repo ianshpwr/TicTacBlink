@@ -7,7 +7,6 @@
   overflow: hidden;
   z-index: 9999;
 }
-
 .confetti {
   position: absolute;
   width: 10px;
@@ -18,7 +17,6 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
 .confetti-0 { background-color: #f44336; }
 .confetti-1 { background-color: #ffeb3b; }
 .confetti-2 { background-color: #4caf50; } 
