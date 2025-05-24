@@ -4,7 +4,7 @@ TicTacBlink is a playful twist on the classic Tic-Tac-Toe game, using emoji cate
 
 ## Demo
 
-- Play the game live: *(add your deployment link here, e.g., Vercel)*
+- Play the game live: https://tictacblink.vercel.app/
 
 ## Tech Stack
 
