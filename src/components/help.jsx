@@ -34,6 +34,7 @@ const styles = {
     overflowY: "auto",
     padding: "0.2rem",
     boxSizing: "border-box",
+
   },
   container: {
     maxWidth: "800px",
