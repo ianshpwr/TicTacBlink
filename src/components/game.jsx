@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import useTicTacBlink from '../hooks/use-tictacblink';
+import Confetti from './confeti';
 import './../App.css';
 function Game() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function Game() {
       <button id='reset' onClick={game.resetGame}>
         Reset Game
       </button>
+      {game.showConfetti && <Confetti show={game.showConfetti} />}
     </div>
   );
 }

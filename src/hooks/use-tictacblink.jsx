@@ -1,4 +1,4 @@
-import { useState,useEffect,useRef } from 'react'
+import { useState,useRef,useEffect } from 'react'
 import ChooseCategory from '../components/choose-category'
 import clicksound from '../assets/clicksound.wav'
 
@@ -12,6 +12,7 @@ function useTicTacBlink(emojiCategories) {
   const [player2winscount, setPlayer2Wins] = useState(0)
   const [winnerCounted, setWinnerCounted] = useState(false)
   const clickSound = useRef(new Audio(clicksound));
+  const [showConfetti, setShowConfetti] = useState(false);
   const winningPatterns = [
     [0, 1, 2],
     [3, 4, 5],
@@ -32,13 +33,25 @@ function useTicTacBlink(emojiCategories) {
 
         for (const [player, emojiList] of categories) {
           if (emojis.every(emoji => emojiList.includes(emoji))) {
-            return player === 'player1' ? 'Player 1' : 'Player 2'
+          const winner = player === 'player1' ? 'Player 1' : 'Player 2';
+            return winner;
+            
           }
         }
       }
     }
     return null
   }
+  const winner = calculateWinner(board);
+  useEffect(() => {
+    if (winner) {
+      setShowConfetti(true);
+    } else {
+      setShowConfetti(false);
+    }
+  }, [winner]);
+
+  
 
 const handleWinnerCounting = (board) => {
   const winner = calculateWinner(board);
@@ -51,13 +64,7 @@ const handleWinnerCounting = (board) => {
     setWinnerCounted(true);
   }
 };
-
-
-useEffect(() => {
-  handleWinnerCounting(board);
-}, [board]);
-
-
+  
   const handleClick = (index) => {
     const winner = calculateWinner(board)
     if (winner || board[index]) return
@@ -91,8 +98,9 @@ useEffect(() => {
     setIsXNext(true)
     setPlayerMoves({ player1: [], player2: [] })
     setWinnerCounted(false);
+    setShowConfetti(false);
   }
-  return {board,handleClick,calculateWinner,resetGame,getStatusMessage,handleWinnerCounting,player1winscount,player2winscount}
+  return {board,handleClick,calculateWinner,resetGame,getStatusMessage,handleWinnerCounting,player1winscount,player2winscount,setShowConfetti,showConfetti}
 }
 
 export default useTicTacBlink
