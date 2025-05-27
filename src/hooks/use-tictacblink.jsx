@@ -1,7 +1,7 @@
 import { useState,useRef,useEffect } from 'react'
 import ChooseCategory from '../components/choose-category'
 import clicksound from '../assets/clicksound.wav'
-
+import winning from '../assets/winning.mp3'
 const initialBoard = () => Array(9).fill(null)
 
 function useTicTacBlink(emojiCategories) {
@@ -12,6 +12,7 @@ function useTicTacBlink(emojiCategories) {
   const [player2winscount, setPlayer2Wins] = useState(0)
   const [winnerCounted, setWinnerCounted] = useState(false)
   const clickSound = useRef(new Audio(clicksound));
+  const winningSound = useRef(new Audio(winning));
   const [showConfetti, setShowConfetti] = useState(false);
   const winningPatterns = [
     [0, 1, 2],
@@ -34,6 +35,8 @@ function useTicTacBlink(emojiCategories) {
         for (const [player, emojiList] of categories) {
           if (emojis.every(emoji => emojiList.includes(emoji))) {
           const winner = player === 'player1' ? 'Player 1' : 'Player 2';
+          winningSound.current.currentTime = 0;
+    winningSound.current.play();
             return winner;
             
           }
