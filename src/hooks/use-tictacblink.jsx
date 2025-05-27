@@ -2,6 +2,7 @@ import { useState,useRef,useEffect } from 'react'
 import ChooseCategory from '../components/choose-category'
 import clicksound from '../assets/clicksound.wav'
 import winning from '../assets/winning.mp3'
+import theme from '../assets/theme.mp3'
 const initialBoard = () => Array(9).fill(null)
 
 function useTicTacBlink(emojiCategories) {
@@ -13,6 +14,7 @@ function useTicTacBlink(emojiCategories) {
   const [winnerCounted, setWinnerCounted] = useState(false)
   const clickSound = useRef(new Audio(clicksound));
   const winningSound = useRef(new Audio(winning));
+  const themeSound = useRef(new Audio(theme));
   const [showConfetti, setShowConfetti] = useState(false);
   const winningPatterns = [
     [0, 1, 2],

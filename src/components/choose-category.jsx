@@ -1,12 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import theme from '../assets/theme.mp3';
 
 function ChooseCategory() {
   const [player1Category, setPlayer1Category] = useState(null);
   const [player2Category, setPlayer2Category] = useState(null);
+  const themeSound = useRef(null);
+
+  if (!themeSound.current) {
+    themeSound.current = new Audio(theme);
+    themeSound.current.loop = true;
+    themeSound.current.volume = 0.5;
+  }
+
+  useEffect(() => {
+    themeSound.current.play().catch(() => {
+      console.log("Audio wwill play on interaction.");
+    });
+
+    return () => {
+    };
+  }, []);
+
+  const handleStartGame = () => {
+    themeSound.current.pause();
+    themeSound.current.currentTime = 0;
+  };
 
   const allCategories = {
-    Work: ['💼','🖊️','🧑‍💻','🗂️'],
+    Work: ['💼', '🖊️', '🧑‍💻', '🗂️'],
     Food: ['🍕', '🍟', '🍔', '🍩'],
     Sports: ['⚽', '🏀', '🏈', '🎾'],
     Fire: ['🔥', '🔥', '🔥', '🔥'],
@@ -23,7 +45,10 @@ function ChooseCategory() {
           <div className="buttons">
             {categories.map(([category, emojis]) => (
               <button key={category} onClick={() => setPlayer1Category(category)}>
-            <span className='outerspan'><span>{category}</span><span className='innerspan'>{emojis.join(' ')}</span></span>
+                <span className="outerspan">
+                  <span>{category}</span>
+                  <span className="innerspan">{emojis.join(' ')}</span>
+                </span>
               </button>
             ))}
           </div>
@@ -36,7 +61,10 @@ function ChooseCategory() {
               .filter(([category]) => category !== player1Category)
               .map(([category, emojis]) => (
                 <button key={category} onClick={() => setPlayer2Category(category)}>
-            <span className='outerspan'><span>{category}</span><span className='innerspan'>{emojis.join(' ')}</span></span>
+                  <span className="outerspan">
+                    <span>{category}</span>
+                    <span className="innerspan">{emojis.join(' ')}</span>
+                  </span>
                 </button>
               ))}
           </div>
@@ -44,18 +72,18 @@ function ChooseCategory() {
       ) : (
         <div className="category">
           <h2>Both players are ready!</h2>
-          <p className='h2' style={{ fontSize: '1.2rem' }}>
-           <span className='ready'>Player 1</span><br/> 
-            <span>{player1Category} - {allCategories[player1Category].join(' ')}</span> 
+          <p className="h2" style={{ fontSize: '1.2rem' }}>
+            <span className="ready">Player 1</span><br />
+            <span>{player1Category} - {allCategories[player1Category].join(' ')}</span>
           </p>
-          <p className='h2' style={{ fontSize: '1.2rem' }}>
-           <span className='ready'>Player 2</span><br/> 
-            <span>{player2Category} - {allCategories[player2Category].join(' ')}</span> 
+          <p className="h2" style={{ fontSize: '1.2rem' }}>
+            <span className="ready">Player 2</span><br />
+            <span>{player2Category} - {allCategories[player2Category].join(' ')}</span>
           </p>
           <Link
-          style={{fontSize:'1.2rem'}}
             to="/game"
-            className='startreset'
+            className="startreset"
+            style={{ fontSize: '1.2rem' }}
             state={{
               player1Category,
               player2Category,
@@ -64,6 +92,7 @@ function ChooseCategory() {
                 player2: allCategories[player2Category],
               },
             }}
+            onClick={handleStartGame}
           >
             Start Game
           </Link>
